@@ -18,6 +18,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     TextView tvTitle;
     TextView tvOverview;
     RatingBar rbVoteAverage;
+    TextView tvReleaseDate;
 
 
     @Override
@@ -32,10 +33,12 @@ public class MovieDetailsActivity extends AppCompatActivity {
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvOverview = (TextView) findViewById(R.id.tvOverview);
         rbVoteAverage = (RatingBar) findViewById(R.id.rbVoteAverage);
+        tvReleaseDate= (TextView) findViewById(R.id.tvReleaseDate);
 
         //set title and overview
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
+        tvReleaseDate.setText(movie.getReleaseDate());
 
         //set rating bar
         float voteAverage = movie.getVoteAverage().floatValue();
@@ -45,4 +48,25 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
 
     }
+
+//    public void onClick(View v) { //ImageView
+//        //item position
+//        int position =  ;
+//                //getAdapterPosition();
+//
+//        //make sure the position is valid, actually exits in the view
+//        if(position != null){
+//            //get the movie at the position
+////            Movie movie = movies.get(position);
+//            //create intent for the new activity
+//            Intent intent = new Intent(this, MovieTrailerActivity.class);
+//            //serialize the movie using parceler, use its short name as a key
+//            intent.putExtra(Movie.class.getSimpleName(), movie.getId());
+//            //show the activity
+//            this.startActivity(intent);
+//        }
+//    }
+
+
+
 }

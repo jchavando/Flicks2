@@ -1,14 +1,15 @@
+
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+<!-- Define your colors in `res/values/colors.xml` -->
+
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <color name="simple_yellow">#ECD078</color>
-        <color name="primary_blue">#53777A</color>
 
     </style>
+
 
 </resources>

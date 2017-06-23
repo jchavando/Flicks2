@@ -14,9 +14,11 @@ public class Movie {
     //values from API
     String title;
     String overview;
-    String posterPath; // only the path
+    String posterPath; //only the path
     String backdropPath;
     Double voteAverage;
+    Integer id;
+    String releaseDate;
 
     public Movie() {}
 
@@ -27,6 +29,10 @@ public class Movie {
         posterPath = object.getString("poster_path");
         backdropPath = object.getString("backdrop_path"); //key from API
         voteAverage = object.getDouble("vote_average");
+        //parse its value from the JSONOBject passed to the constructor
+        id = object.getInt("id");
+
+        releaseDate = object.getString("release_date");
     }
 
     public String getTitle() {
@@ -47,5 +53,13 @@ public class Movie {
 
     public Double getVoteAverage() {
         return voteAverage;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
     }
 }
