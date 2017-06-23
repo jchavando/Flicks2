@@ -33,17 +33,13 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
     //tag for logging from this activity
     public final static String TAG = "MovieTrailerActivity";
 
+    public final static String YOUTUBE_BASE_URL = "https://www.youtube.watch?v=";
+
     //instance fields
     AsyncHttpClient client;
 
     Movie movie;
     Integer movieId;
-
-
-//    //the adapter wired to the recycler view
-//    MovieAdapter adapter;
-//    //image config
-//    Config config;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +52,7 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
         // resolve the player view from the layout
         YouTubePlayerView playerView = (YouTubePlayerView) findViewById(R.id.player);
 
+        getTrailer();
         // initialize with API key stored in secrets.xml
         playerView.initialize(getString(R.string.youtube_api_key), new YouTubePlayer.OnInitializedListener() {
             @Override
@@ -63,6 +60,7 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
                                                 YouTubePlayer youTubePlayer, boolean b) {
                 // do any work here to cue video, play video, etc.
                 youTubePlayer.cueVideo(videoId);
+                //getTrailer();
             }
 
             @Override
@@ -72,16 +70,14 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
                 Log.e("MovieTrailerActivity", "Error initializing YouTube player");
             }
         });
+
+
     }
 
 
     private void getTrailer(){
 
-        // can pass things in intent to access other activities
-
         String url = API_BASE_URL + "/movie/" + movie.getId() + "/videos"; //end of url
-
-        //TODO
 
         //set the request parameters
         RequestParams params = new RequestParams();
@@ -92,20 +88,19 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 // load the results into movies list
                 try {
+                    String videoKey;
                     JSONArray results = response.getJSONArray("results");
 
-                    //iterate through result set and create Movie objects
-                    for (int i = 0; i < results.length(); i++) {
-                        Movie movie = new Movie(results.getJSONObject(i));
-                        //movies.add(movie);
-                        //notify adapter that a row was added
-                        //adapter.notifyItemInserted(movies.size() - 1);
+                    JSONObject results_object = results.getJSONObject(0);
+
+                    if(results_object != null) {
+                        videoKey = results_object.getString("key");
+                        Log.i(TAG, YOUTUBE_BASE_URL + videoKey);
                     }
-                    Log.i(TAG, String.format("Loaded %s movies", results.length()));
+
                 } catch (JSONException e) {
                     //logError("Failed to parse now playing movie", e, true);
                 }
-
             }
 
             @Override

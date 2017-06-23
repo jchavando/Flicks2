@@ -1,8 +1,10 @@
 package com.jchavando.flicks;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -19,6 +21,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     TextView tvOverview;
     RatingBar rbVoteAverage;
     TextView tvReleaseDate;
+
 
 
     @Override
@@ -42,30 +45,25 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
         //set rating bar
         float voteAverage = movie.getVoteAverage().floatValue();
-        //if voteAverage is >0, then divide it by 2
+        //if voteAverage is > 0, then divide it by 2
         rbVoteAverage.setRating(voteAverage = voteAverage > 0 ? voteAverage/2.0f : voteAverage);
 
+        tvTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //create intent for the new activity
+                Intent intent = new Intent(MovieDetailsActivity.this,MovieTrailerActivity.class);
+                //serialize the movie using parceler, use its short name as a key
+                intent.putExtra(Movie.class.getSimpleName(), movie.getId());
+                //show the activity
+                startActivity(intent);
+            }
+        });
 
 
     }
 
-//    public void onClick(View v) { //ImageView
-//        //item position
-//        int position =  ;
-//                //getAdapterPosition();
-//
-//        //make sure the position is valid, actually exits in the view
-//        if(position != null){
-//            //get the movie at the position
-////            Movie movie = movies.get(position);
-//            //create intent for the new activity
-//            Intent intent = new Intent(this, MovieTrailerActivity.class);
-//            //serialize the movie using parceler, use its short name as a key
-//            intent.putExtra(Movie.class.getSimpleName(), movie.getId());
-//            //show the activity
-//            this.startActivity(intent);
-//        }
-//    }
+
 
 
 
