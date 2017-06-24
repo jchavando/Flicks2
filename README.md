@@ -12,7 +12,7 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-* [ ] For each movie displayed, user can see the following details:
+* [x] For each movie displayed, user can see the following details:
   * [x] Title, Poster Image, Overview (Portrait mode)
   * [x] Title, Backdrop Image, Overview (Landscape mode)
 * [x] Display a nice default [placeholder graphic](https://guides.codepath.com/android/Displaying-Images-with-the-Glide-Library#advanced-usage) for each image during loading
