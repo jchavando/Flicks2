@@ -2,7 +2,7 @@
 
 **Flicks** shows the latest movies currently playing in theaters. The app utilizes the Movie Database API to display images and basic information about these movies to the user.
 
-Time spent: **10** hours spent in total
+Time spent: **13** hours spent in total
 
 ## User Stories
 
@@ -24,7 +24,8 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you can get done to improve the app functionality!
+* [x] List anything else that you can get done to improve the app functionality!
+  * [x] Allowed the user to view details like release date and whether it's an adult film or not
 
 ## Video Walkthrough
 
@@ -38,6 +39,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Notes
 
 Describe any challenges encountered while building the app.
+I found the transition to the implementation of the YouTube API to be challenging. This feature took me the most time as I encountered a few bugs and had difficulty implementing the onClick feature.
 
 ## Open-source libraries used
 
