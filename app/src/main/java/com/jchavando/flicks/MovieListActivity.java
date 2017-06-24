@@ -71,6 +71,7 @@ public class MovieListActivity extends AppCompatActivity {
         params.put(API_KEY_PARAM,getString(R.string.api_key));//API key, always required
         //execute a GET request expecting a JSON object response
         client.get(url, params, new JsonHttpResponseHandler(){
+
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 // load the results into movies list

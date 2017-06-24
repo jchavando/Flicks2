@@ -19,6 +19,7 @@ public class Movie {
     Double voteAverage;
     Integer id;
     String releaseDate;
+    Boolean adultFilm;
 
     public Movie() {}
 
@@ -31,6 +32,8 @@ public class Movie {
         voteAverage = object.getDouble("vote_average");
         //parse its value from the JSONOBject passed to the constructor
         id = object.getInt("id");
+
+        adultFilm = object.getBoolean("adult");
 
         releaseDate = object.getString("release_date");
     }
@@ -61,5 +64,9 @@ public class Movie {
 
     public String getReleaseDate() {
         return releaseDate;
+    }
+
+    public Boolean getAdultFilm() {
+        return adultFilm;
     }
 }
